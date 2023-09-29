@@ -1,0 +1,47 @@
+============================================================
+======================SQL Queries===========================
+============================================================
+
+Database name -> dummy
+Table name -> person
+
+
+Create Database in mysql 
+-> create database Database_Name;
+
+
+Create table
+-> create table person(id int,name varchar(50),dob date);
+
+
+Create table with constraints
+-> create table person(
+id int not null unique auto_increment,
+name varchar(50) not null,
+age int not null check(age>18),
+dob date not null 
+);
+
+
+Add data in table
+-> insert into person (id, name, dob) value(1, "Zee", "1994-09-08");
+
+
+Adding multiple values in single table in one query
+-> insert into person (id, name, dob) 
+value
+(3, "Ali", "1998-10-28"),
+(4, "Huma", "1966-10-28"),
+(5, "Faisal", "1896-10-28");
+
+
+Select all data from table
+-> select * from person
+
+
+Select column data from table
+-> select id, name from person;
+
+
+Select data from table with condition
+-> select * from person where age >25;
