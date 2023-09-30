@@ -10,7 +10,7 @@ Create Database in mysql
 > create database Database_Name;
 
 
-**Create table**
+Create table
 > create table person(id int,name varchar(50),dob date);
 
 
