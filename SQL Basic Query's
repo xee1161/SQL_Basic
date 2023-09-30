@@ -7,15 +7,15 @@ Table name -> person
 
 
 Create Database in mysql 
--> create database Database_Name;
+> create database Database_Name;
 
 
-Create table
--> create table person(id int,name varchar(50),dob date);
+**Create table**
+> create table person(id int,name varchar(50),dob date);
 
 
 Create table with constraints
--> create table person(
+> create table person(
 id int not null unique auto_increment,
 name varchar(50) not null,
 age int not null check(age>18),
@@ -24,11 +24,11 @@ dob date not null
 
 
 Add data in table
--> insert into person (id, name, dob) value(1, "Zee", "1994-09-08");
+> insert into person (id, name, dob) value(1, "Zee", "1994-09-08");
 
 
 Adding multiple values in single table in one query
--> insert into person (id, name, dob) 
+> insert into person (id, name, dob) 
 value
 (3, "Ali", "1998-10-28"),
 (4, "Huma", "1966-10-28"),
@@ -36,12 +36,83 @@ value
 
 
 Select all data from table
--> select * from person
+> select * from person
 
 
 Select column data from table
--> select id, name from person;
+> select id, name from person;
 
 
 Select data from table with condition
--> select * from person where age >25;
+> select * from person where age >25;
+
+
+Select multiple data from table with condition and operator
+> select * from person where age >25 and age<29 ;
+
+
+Select multiple data from table using IN/Not IN operator
+> select * from person where age in (26,29) ;
+> select * from person where age not in (26,29) ;
+
+
+Select multiple data from table using between/not between operator
+> select * from person where age between 20 and 30;
+> select * from person where age not between 20 and 30;
+
+
+Select data using like operator
+>select * from person where name like "A%";
+(Use Binary before column name to make it case sensitive search)
+
+
+Regular Expression
+> Use '^Z' (it will find all data that starts with Z)
+> Use 'an$' (it will find all data that ends with an)
+> Use 'Zeeshan| Awais' (will find all names having these two provided names)
+> Use '[s]' (it will find all names having s in them)
+
+
+Show data in order
+>select * from person order by name asc; (for accending order)
+>select * from person order by name desc; (for descending order) 
+
+
+Distinct records
+> select distinct city from person; (it will not show duplicate records)
+
+
+Check null and not null
+> select * from person where age is null;
+> select * from person where age is not null;
+
+
+Add Limit to record
+> select * from person limit 2;(it will only show 2 records)
+Note: We can also put condition in this query. and then this query will apply condition on table and will only show limited number of records
+
+
+Add offset to record
+> select * from person limit 3, 2; (here 3 is the offset and 2 is the limit)
+Note: Offset will skip first 3 rows and will show data from 4th column up to given limit.
+
+
+Add count
+> select count(name) from person; (it will tell you the number of records present in column)
+
+
+Add max, min and sum
+> select max(salary) from person; (it will show the highest number present in column salary)
+> select min(salary) from person; (it will show the lowest number present in column salary)
+> select sum(salary) from person; (it will add all the numbers in column salary)
+> select avg(salary) from person; (it will show average of all numbers present in column salary)
+
+
+Update single data from table
+>update person set name = "Faisal" where id = 2;(here it will update name to faisal where id is 2)
+Note: if we donot set condition then it will update all records of the column with given data
+
+
+Delete data from table
+>delete from person where id = 2;(it will delete row where id is 2)
+
