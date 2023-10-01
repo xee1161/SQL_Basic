@@ -116,3 +116,38 @@ Note: if we donot set condition then it will update all records of the column wi
 Delete data from table
 >delete from person where id = 2;(it will delete row where id is 2)
 
+
+JOIN/Inner JOIN
+> SELECT * FROM person INNER JOIN state ON person.state = state.sid;
+Note(here we have 2 tables person and state, state column is used as a forien key in person table. now when we use inner join query we will get data of both tables combined)
+>WE CAN ALSO USE SPECIFIC COLUMN NAMES FOR SPECIFIC DATA
+
+
+LEFT JOIN
+> SELECT * FROM person LEFT JOIN STATE ON person.state = state.sid;
+Note(here left join will take all data from person table and will take common data from state table)
+REMEMBER THAT VALUE THAT ARE NOT COMMON IN PERSON TABLE WILL ALSO BE TAKEN
+
+
+RIGHT JOIN
+> SELECT * FROM person RIGHT JOIN STATE ON person.state = state.sid;
+Note(here left join will take all data from state table and will take common data from person table)
+REMEMBER THAT VALUE THAT ARE NOT COMMON IN STATE TABLE WILL ALSO BE TAKEN
+
+
+Group By
+>select person, COUNT(id) from person group by id;
+Note(Group by will check the column and will group the number of data)
+Example: if 2 employee are from rawalpindi, 3 from islamabad and 5 from lahore
+it will show 
+Rawalpindi 2
+Islamabad 3
+Lahore 5
+
+
+UNION/ ALL UNION
+>select * from employee
+Union All
+select * from staff;
+(Here the union all query will show all the results from both tables)
+Note If we use only union then it will not show the duplicate result.
